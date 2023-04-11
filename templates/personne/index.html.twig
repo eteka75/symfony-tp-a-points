@@ -11,6 +11,7 @@
                 <th>#</th>
                 <th>Nom</th>
                 <th>Groupe</th>
+                <th>Points</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,8 +20,8 @@
             <tr>
                 <td>{{ personne.id }}</td>
                 <td>{{ personne.nom }}</td>
-                <td>{{ (personne.total) }}</td>
                 <td>{{ personne.groupe }}</td>
+                <td>{{ (personne.total) }}</td>
                 <td>
                     <a class="btn btn-sm btn-primary" href="{{ path('app_point_new', {'id': personne.id}) }}">Ajouter point</a>
                     
