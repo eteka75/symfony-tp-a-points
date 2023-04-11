@@ -33,6 +33,10 @@ class Personne
     {
         return $this->id;
     }
+    public function __toString()
+    {
+        return $this->getNom();
+    }
 
     public function getNom(): ?string
     {

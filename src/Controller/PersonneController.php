@@ -47,6 +47,7 @@ class PersonneController extends AbstractController
             'personne' => $personne,
         ]);
     }
+   
 
     #[Route('/{id}/edit', name: 'app_personne_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Personne $personne, PersonneRepository $personneRepository): Response

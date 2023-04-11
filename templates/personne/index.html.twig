@@ -21,7 +21,7 @@
                 <td>{{ personne.nom }}</td>
                 <td>{{ personne.groupe }}</td>
                 <td>
-                    <a class="btn btn-sm btn-primary" href="{{ path('app_personne_show', {'id': personne.id}) }}">Ajouter point</a>
+                    <a class="btn btn-sm btn-primary" href="{{ path('app_point_new', {'id': personne.id}) }}">Ajouter point</a>
                     
                     
                     <a href="{{ path('app_personne_show', {'id': personne.id}) }}">Afficher</a>

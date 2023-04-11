@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Point;
+use App\Entity\Personne;
 use App\Form\Point1Type;
 use App\Repository\PointRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,10 +22,13 @@ class PointController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_point_new', methods: ['GET', 'POST'])]
+    #[Route('/new/{id}', name: 'app_point_new', methods: ['GET', 'POST'])]
     public function new(Request $request, PointRepository $pointRepository): Response
     {
         $point = new Point();
+        $id=($request->get('id'));
+        $personne=$this->getDoctrine()->getRepository(Personne::class)->find($id);
+        
         $form = $this->createForm(Point1Type::class, $point);
         $form->handleRequest($request);
 
