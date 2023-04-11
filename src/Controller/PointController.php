@@ -22,7 +22,7 @@ class PointController extends AbstractController
         ]);
     }
 
-    #[Route('/new/{id}', name: 'app_point_new', methods: ['GET', 'POST'])]
+    #[Route('/new/{id?}', name: 'app_point_new', methods: ['GET', 'POST'])]
     public function new(Request $request, PointRepository $pointRepository): Response
     {
         $point = new Point();
@@ -35,7 +35,7 @@ class PointController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $pointRepository->save($point, true);
 
-            return $this->redirectToRoute('app_point_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_personne_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('point/new.html.twig', [

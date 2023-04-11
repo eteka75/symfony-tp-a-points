@@ -31,6 +31,11 @@ class Point
     {
         return $this->point;
     }
+    public function __toString()
+    {
+        return $this->getPoint();
+    }
+
 
     public function setPoint(int $point): self
     {

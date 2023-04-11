@@ -42,6 +42,16 @@ class Personne
     {
         return $this->nom;
     }
+    public function getTotal(): ?int
+    {
+        $t=$this->getPoints();
+        $n=0;
+        //dd($t);
+        foreach($t as $v){
+            $n+= $v->getPoint();
+        }
+        return $n? $n : 0;
+    }
 
     public function setNom(string $nom): self
     {
