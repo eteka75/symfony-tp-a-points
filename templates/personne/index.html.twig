@@ -3,7 +3,11 @@
 {% block title %}Personnes {% endblock %}
 
 {% block body %}
+<div class="row"> 
+    <div class="col-md-12"> 
     <h1 class="pb-2 border-bottom mb-4">Personnes</h1>
+    </div>
+<div class="col-md-8"> 
 
     <table class="table">
         <thead>
@@ -12,7 +16,7 @@
                 <th>Nom</th>
                 <th>Groupe</th>
                 <th>Points</th>
-                <th>Actions</th>
+                <th class="text-end">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +26,7 @@
                 <td>{{ personne.nom }}</td>
                 <td>{{ personne.groupe }}</td>
                 <td>{{ (personne.total) }}</td>
-                <td>
+                <td class="text-end">
                     <a class="btn btn-sm btn-primary" href="{{ path('app_point_new', {'id': personne.id}) }}">Ajouter point</a>
                     
                     
@@ -39,4 +43,6 @@
     </table>
 
     <a class="btn btn-primary" href="{{ path('app_personne_new') }}">Ajouter</a>
+</div>
+</div>
 {% endblock %}
