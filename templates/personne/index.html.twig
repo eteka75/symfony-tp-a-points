@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Personnes {% endblock %}
+
+{% block body %}
+    <h1 class="pb-2 border-bottom mb-4">Personnes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nom</th>
+                <th>Groupe</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for personne in personnes %}
+            <tr>
+                <td>{{ personne.id }}</td>
+                <td>{{ personne.nom }}</td>
+                <td>{{ personne.groupe }}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" href="{{ path('app_personne_show', {'id': personne.id}) }}">Ajouter point</a>
+                    
+                    
+                    <a href="{{ path('app_personne_show', {'id': personne.id}) }}">Afficher</a>
+                    <a href="{{ path('app_personne_edit', {'id': personne.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Personne(s) trouvées</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_personne_new') }}">Ajouter</a>
+{% endblock %}

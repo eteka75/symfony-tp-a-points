@@ -3,6 +3,7 @@
     "license": "proprietary",
     "minimum-stability": "stable",
     "prefer-stable": true,
+    "homepage": "https://eteka75.github.io/symfony-tp-a-points.git",
     "require": {
         "php": ">=7.2.5",
         "ext-ctype": "*",
@@ -73,8 +74,11 @@
     },
     "scripts": {
         "auto-scripts": {
+            "predeploy":"npm run build",
+            "deploy":"gh-pages -d build",
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
+
         },
         "post-install-cmd": [
             "@auto-scripts"

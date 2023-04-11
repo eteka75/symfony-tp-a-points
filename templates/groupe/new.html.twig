@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau groupe{% endblock %}
+
+{% block body %}
+    <h1 class="pb-2 border-bottom mb-4">Nouveau groupe</h1>
+
+    {{ include('groupe/_form.html.twig') }}
+
+    <a class="btn btn-dark" href="{{ path('app_groupe_index') }}">Retour</a>
+{% endblock %}
