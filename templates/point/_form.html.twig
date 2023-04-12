@@ -1,5 +1,24 @@
+
 {{ form_start(form) }}
-    {{ form_widget(form,{ 'attr': {'class': 'p-4 border rounded-3'} }) }}
+    <div class="form-group">
+        {{ form_label(form.point, 'Point ',{'label_attr': {'class': 'col-sm-12 col-form-label'}}) }}
+        <div class="input-group_ col-md-5">
+           
+            {{ form_widget(form.point, {'attr': {'class': 'form-control  ','placeholder' : '10'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {{ form_label(form.personne, 'Selectionner la personne :',{'label_attr': {'class': 'col-sm-12 col-form-label'}}) }}
+        {{ form_widget(form.personne, {'attr': {'class': 'form-select'}}) }}
+    </div>
    
-    <button class="btn btn-primary my-4 btn-sm">{{ button_label|default('Ajouter') }}</button>
+    <div class="form-group">
+        {{ form_label(form.createdAt, 'Date d\'ajout', {'label_attr': {'class': 'col-sm-10 col-form-label'}}) }}
+        <div class="col-sm-12">
+            {{ form_widget(form.createdAt, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    
+    
+  <button class="btn btn-primary my-4 btn-sm">{{ button_label|default('Ajouter') }}</button>
 {{ form_end(form) }}

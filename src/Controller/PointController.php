@@ -23,14 +23,15 @@ class PointController extends AbstractController
     }
 
     #[Route('/new/{id?}', name: 'app_point_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, PointRepository $pointRepository): Response
+    public function new(int $id,Request $request, PointRepository $pointRepository): Response
     {
         $point = new Point();
-        $id=($request->get('id'));
+        //$id=($request->get('id'));
         $personne=$this->getDoctrine()->getRepository(Personne::class)->find($id);
-        
+        $point->setPersonne($personne);
         $form = $this->createForm(Point1Type::class, $point);
         $form->handleRequest($request);
+        //$form->get('personne')->setDefault($personne);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $pointRepository->save($point, true);
@@ -41,6 +42,7 @@ class PointController extends AbstractController
         return $this->renderForm('point/new.html.twig', [
             'point' => $point,
             'form' => $form,
+            'personne' => $personne,
         ]);
     }
 

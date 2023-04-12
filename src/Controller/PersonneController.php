@@ -16,8 +16,10 @@ class PersonneController extends AbstractController
     #[Route('/', name: 'app_personne_index', methods: ['GET'])]
     public function index(PersonneRepository $personneRepository): Response
     {
+        $personnes=$personneRepository->findAll();
+       
         return $this->render('personne/index.html.twig', [
-            'personnes' => $personneRepository->findAll(),
+            'personnes' => $personnes,
         ]);
     }
 
@@ -27,6 +29,7 @@ class PersonneController extends AbstractController
         $personne = new Personne();
         $form = $this->createForm(Personne1Type::class, $personne);
         $form->handleRequest($request);
+        
 
         if ($form->isSubmitted() && $form->isValid()) {
             $personneRepository->save($personne, true);

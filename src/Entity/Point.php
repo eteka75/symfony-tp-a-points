@@ -22,6 +22,10 @@ class Point
     #[ORM\ManyToOne(inversedBy: 'points')]
     private ?Personne $personne = null;
 
+   
+    public function __construct() {
+        $this->setCreatedAt(new \DateTimeImmutable("now"));
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -49,7 +53,7 @@ class Point
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTimeImmutable $createdAt=new DateTime("now")): self
     {
         $this->createdAt = $createdAt;
 

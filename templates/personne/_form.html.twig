@@ -1,5 +1,16 @@
+
 {{ form_start(form) }}
-    {{ form_widget(form,{ 'attr': {'class': 'p-4 border rounded-3'} }) }}
-     
-    <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+    <div class="form-group">
+        {{ form_label(form.groupe, 'Groupe ') }}
+        <div class="input-group">
+           
+            {{ form_widget(form.groupe, {'attr': {'class': 'form-select'}}) }}
+        </div>
+    </div>
+    <div class="form-group">
+        {{ form_label(form.nom, 'Nom de la peronne') }}
+        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    
+    <button class="btn btn-primary my-4">{{ button_label|default('Enrégistrer') }}</button>
 {{ form_end(form) }}
