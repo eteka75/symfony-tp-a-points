@@ -22,6 +22,7 @@ class Personne
     private ?Groupe $groupe = null;
 
     #[ORM\OneToMany(mappedBy: 'personne', targetEntity: Point::class)]
+   
     private Collection $points;
 
     public function __construct()

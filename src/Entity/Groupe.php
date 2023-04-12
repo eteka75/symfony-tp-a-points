@@ -28,6 +28,7 @@ class Groupe
     public function __construct()
     {
         $this->personnes = new ArrayCollection();
+        $this->setCreateAt(new \DateTimeImmutable("now"));
     }
     public function __toString()
     {

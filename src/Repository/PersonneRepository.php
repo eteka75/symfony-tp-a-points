@@ -38,6 +38,17 @@ class PersonneRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function LatestNews(): ?array
+    {
+        $d= $this->createQueryBuilder('p')
+            ->orderBy('p.nom')
+           // ->orderBy('p.createdAt', 'DESC')
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+        dd($d);
+        return $d;
+    }
 
 //    /**
 //     * @return Personne[] Returns an array of Personne objects
